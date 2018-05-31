@@ -23,7 +23,7 @@ function shuffle(array) {
     }
 
     return array;
-}
+};
 
 
 /*
@@ -36,3 +36,11 @@ function shuffle(array) {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+const allCards = document.querySelectorAll('.card');
+
+ allCards.forEach(function(card) {
+   card.addEventListener('click', function () {
+     card.classList.add('open','show');
+   });
+ });
