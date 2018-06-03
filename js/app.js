@@ -62,8 +62,10 @@ function closeCard (card) {
      if (opened.length > 1 && opened[0].firstChild.className === opened[1].firstChild.className) {
        matchCards(card);
        movesVar ++;
+       moves.innerText = movesVar;
      } else {
        movesVar ++;
+       moves.innerText = movesVar;
        unmatchCards(card);
        setTimeout(function(){
        closeCard(card);
@@ -73,16 +75,12 @@ function closeCard (card) {
 
 //Matching cards functionality
  function matchCards (card){
-matchVar ++;
-moves.innerText = movesVar;
 opened[0].classList.toggle('match');
 opened[1].classList.toggle('match');
 opened.splice(0,2);
  };
 
  function unmatchCards (card) {
-matchVar ++;
-moves.innerText = movesVar;
 opened[0].classList.toggle('unmatch');
 opened[1].classList.toggle('unmatch');
  }
@@ -103,10 +101,12 @@ function youWin () {
          checkCard(card);
       }
       else if (opened.length > 1) {
-        
+
       } else if (opened.length == 0) {
         openCard(card);
-       } else if (matchVar === 8) {
+       }
+
+        if (matchVar === 8) {
           youWin();
       }
     }
