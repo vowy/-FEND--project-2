@@ -1,8 +1,8 @@
 //Card list
 const cards = ['diamond', 'paper-plane-o', 'anchor', 'bolt', 'cube', 'leaf', 'bicycle', 'bomb', 'diamond', 'paper-plane-o', 'anchor', 'bolt', 'cube', 'leaf', 'bicycle', 'bomb'];
-//Const Vars
-const deck = document.querySelector('.deck');
-let clickCount = 0;
+   const deck = document.querySelector('.deck');
+   let cardItem = [];
+   let opened = [];
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -25,24 +25,44 @@ function placeCards() {
      deck.insertAdjacentHTML('beforeend', template);
   };
 };
-//Card Clicking Function
-function clickCard () {
-const cardItems = document.querySelectorAll('.card');
-
- cardItems.forEach(function(card) {
-       card.addEventListener('click', function () {
-         card.classList.add('open','show');
-         clickCount ++;
-     });
-   });
+//Card Clicking Functions
+function openCard (card) {
+  card.target.classList.add('open','show')
+  opened.push(card.target)
 }
-
-
+function closeCard (card) {
+  card.target.classList.remove('open','show')
+  opened.pop(card.target)
+}
+//check card functionality
+   function checkCard(){
+     console.log('check')}
 //Initialize game function
  function gameInit(){
    placeCards();
-   clickCard();
-}
+   cardItem.push(deck.getElementsByTagName('i'));
+
+       if (opened.length < 2) {
+     cardItem.forEach(function () {
+     addEventListener('click', function (card) {
+
+        openCard(card);
+        setTimeout(function(){
+        closeCard(card);
+      }, 2300)
+    })})}
+
+    else if (opened.length >= 2) {
+      removeEventListener('click', function (card) {
+
+        openCard(card);
+        setTimeout(function(){
+        closeCard(card);
+      }, 2300)
+    }
+      )
+    }
+   }
 
 
 /*
