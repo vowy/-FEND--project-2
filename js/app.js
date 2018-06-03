@@ -52,13 +52,14 @@ function closeCard (card) {
  function matchCards (card){
 opened[0].classList.add('match')
 opened[1].classList.add('match')
+setTimeout(function(){
 opened.pop(card.target)
 opened.pop(card.target)
+},600);
  };
  function unmatchCards (card) {
 opened[0].classList.add('unmatch')
 opened[1].classList.add('unmatch')
-closeCard(card);
  }
 //Initialize game function
  function gameInit(){
@@ -66,7 +67,7 @@ closeCard(card);
    cardItem.push(deck.getElementsByTagName('i'));
 
     addEventListener('click', function (card) {
-      if (opened.length === 1) {
+      if (opened.length == 1) {
          openCard(card);
          checkCard(card);
       }
