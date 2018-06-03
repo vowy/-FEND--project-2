@@ -3,6 +3,7 @@ const cards = ['diamond', 'paper-plane-o', 'anchor', 'bolt', 'cube', 'leaf', 'bi
    const deck = document.querySelector('.deck');
    let cardItem = [];
    let opened = [];
+   let opened2 = [];
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -27,42 +28,58 @@ function placeCards() {
 };
 //Card Clicking Functions
 function openCard (card) {
-  card.target.classList.add('open','show')
-  opened.push(card.target)
+  card.target.classList.add('open','show');
+  opened.push(card.target);
 }
 function closeCard (card) {
-  card.target.classList.remove('open','show')
-  opened.pop(card.target)
+  card.target.className = 'card';
+  opened.pop(card.target);
+
 }
 //check card functionality
-   function checkCard(){
-     console.log('check')}
+   function checkCard(card)
+   {
+     if (opened[0].firstChild.className === opened[1].firstChild.className) {
+       matchCards(card);
+     }else{
+       unmatchCards(card);
+       setTimeout(function(){
+       closeCard(card);
+     }, 800)
+     }
+   };
+//Matching cards functionality
+ function matchCards (card){
+opened[0].classList.add('match')
+opened[1].classList.add('match')
+opened.pop(card.target)
+opened.pop(card.target)
+ };
+ function unmatchCards (card) {
+opened[0].classList.add('unmatch')
+opened[1].classList.add('unmatch')
+closeCard(card);
+ }
 //Initialize game function
  function gameInit(){
    placeCards();
    cardItem.push(deck.getElementsByTagName('i'));
 
-       if (opened.length < 2) {
-     cardItem.forEach(function () {
-     addEventListener('click', function (card) {
+    addEventListener('click', function (card) {
+      if (opened.length === 1) {
+         openCard(card);
+         checkCard(card);
+      }
+      else if (opened.length > 1) {
 
-        openCard(card);
-        setTimeout(function(){
-        closeCard(card);
-      }, 2300)
-    })})}
-
-    else if (opened.length >= 2) {
-      removeEventListener('click', function (card) {
-
-        openCard(card);
-        setTimeout(function(){
-        closeCard(card);
-      }, 2300)
+      } else {
+         openCard(card);
+         setTimeout(function(){
+         closeCard(card);
+       }, 800);
     }
-      )
-    }
-   }
+    })
+}
 
 
 /*
