@@ -4,6 +4,7 @@ const cards = ['diamond', 'paper-plane-o', 'anchor', 'bolt', 'cube', 'leaf', 'bi
    const deck = document.querySelector('.deck');
    let cardItem = [];
    let opened = [];
+   let matchVar = 0;
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -34,9 +35,10 @@ function openCard (card) {
   card.target.classList.add('open','show');
   opened.push(card.target);
 }
+
 function closeCard (card) {
-  opened[1].classList.remove('open','show','unmatch')
-  opened[0].classList.remove('open','show','unmatch')
+  opened[1].classList.remove('open','show','unmatch');
+  opened[0].classList.remove('open','show','unmatch');
   opened.splice(0,2);
 
 }
@@ -46,7 +48,6 @@ function closeCard (card) {
    {
      if (opened.length > 1 && opened[0].firstChild.className === opened[1].firstChild.className) {
        matchCards(card);
-       let match ++;
      } else {
        unmatchCards(card);
        setTimeout(function(){
@@ -57,16 +58,21 @@ function closeCard (card) {
 
 //Matching cards functionality
  function matchCards (card){
-opened[0].classList.add('match')
-opened[1].classList.add('match')
-opened.splice(0,2)
+matchVar ++;
+opened[0].classList.add('match');
+opened[1].classList.add('match');
+opened.splice(0,2);
  };
 
  function unmatchCards (card) {
-opened[0].classList.add('unmatch')
-opened[1].classList.add('unmatch')
+opened[0].classList.add('unmatch');
+opened[1].classList.add('unmatch');
  }
 
+//Function on Win
+function youWin () {
+  console.log('Congratulations')
+};
 
 //Initialize game function
  function gameInit(){
@@ -85,6 +91,9 @@ opened[1].classList.add('unmatch')
       }
     }
   )
+  if (matchVar === 8) {
+    youWin();
+  }
 }
 
 
