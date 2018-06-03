@@ -1,9 +1,10 @@
 //Card list
 const cards = ['diamond', 'paper-plane-o', 'anchor', 'bolt', 'cube', 'leaf', 'bicycle', 'bomb', 'diamond', 'paper-plane-o', 'anchor', 'bolt', 'cube', 'leaf', 'bicycle', 'bomb'];
+
    const deck = document.querySelector('.deck');
    let cardItem = [];
    let opened = [];
-   let opened2 = [];
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -18,6 +19,7 @@ function shuffle(array) {
 
     return array;
 };
+
 //Place Random cards function
 function placeCards() {
   let shuffled = shuffle(cards);
@@ -26,41 +28,46 @@ function placeCards() {
      deck.insertAdjacentHTML('beforeend', template);
   };
 };
+
 //Card Clicking Functions
 function openCard (card) {
   card.target.classList.add('open','show');
   opened.push(card.target);
 }
 function closeCard (card) {
-  card.target.className = 'card';
-  opened.pop(card.target);
+  opened[1].classList.remove('open','show','unmatch')
+  opened[0].classList.remove('open','show','unmatch')
+  opened.splice(0,2);
 
 }
+
 //check card functionality
    function checkCard(card)
    {
-     if (opened[0].firstChild.className === opened[1].firstChild.className) {
+     if (opened.length > 1 && opened[0].firstChild.className === opened[1].firstChild.className) {
        matchCards(card);
-     }else{
+       let match ++;
+     } else {
        unmatchCards(card);
        setTimeout(function(){
        closeCard(card);
      }, 800)
      }
    };
+
 //Matching cards functionality
  function matchCards (card){
 opened[0].classList.add('match')
 opened[1].classList.add('match')
-setTimeout(function(){
-opened.pop(card.target)
-opened.pop(card.target)
-},600);
+opened.splice(0,2)
  };
+
  function unmatchCards (card) {
 opened[0].classList.add('unmatch')
 opened[1].classList.add('unmatch')
  }
+
+
 //Initialize game function
  function gameInit(){
    placeCards();
@@ -73,13 +80,11 @@ opened[1].classList.add('unmatch')
       }
       else if (opened.length > 1) {
 
-      } else {
+      } else if (opened.length == 0) {
          openCard(card);
-         setTimeout(function(){
-         closeCard(card);
-       }, 800);
+      }
     }
-    })
+  )
 }
 
 
