@@ -1,20 +1,21 @@
-# Memory Game Project
+# [FEND] Project 2: Memory/Matching Game Project
 
 ## Table of Contents
 
+* [About](#about)
 * [Instructions](#instructions)
-* [Contributing](#contributing)
+* [Version List](#version)
+
+## About
+
+This is the 2nd Project in the Udacity Front-End-Web-Design Nanodegree program. 
+Made by, Eric "Vowy" Parsons along with help from the provided template.
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+Click one the dark spaces to reveal a card with a symbol. Match cards by revealing two cards at a time. See move counter to track how many reveals you have initiated.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## Version
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+Current: 0.5 (BETA)
+(Note: Project is still in BETA, still a work in progress. Though it is mostly functional.)
