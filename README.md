@@ -8,7 +8,7 @@
 
 ## About
 
-This is the 2nd Project in the Udacity Front-End-Web-Design Nanodegree program. 
+This is the 2nd Project in the Udacity Front-End-Web-Design Nanodegree program.
 Made by, Eric "Vowy" Parsons along with help from the provided template.
 
 ## Instructions
