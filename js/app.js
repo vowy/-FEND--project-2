@@ -2,9 +2,22 @@
 const cards = ['diamond', 'paper-plane-o', 'anchor', 'bolt', 'cube', 'leaf', 'bicycle', 'bomb', 'diamond', 'paper-plane-o', 'anchor', 'bolt', 'cube', 'leaf', 'bicycle', 'bomb'];
 
    const deck = document.querySelector('.deck');
+   const scorePanel = document.querySelector('.score-panel');
+   const restart = scorePanel.querySelector('.restart');
+   const moves = scorePanel.querySelector('.moves');
+   const timer = scorePanel.querySelector('.timer');
    let cardItem = [];
    let opened = [];
    let matchVar = 0;
+   let movesVar = 0;
+   let firstClick = true;
+   timerSeconds = 0;
+   timerMinutes = 0;
+
+// Score-panel restart (reload) function
+restart.addEventListener('click', function (){
+  location.reload(true);
+});
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -48,25 +61,30 @@ function closeCard (card) {
    {
      if (opened.length > 1 && opened[0].firstChild.className === opened[1].firstChild.className) {
        matchCards(card);
+       movesVar ++;
      } else {
+       movesVar ++;
        unmatchCards(card);
        setTimeout(function(){
        closeCard(card);
-     }, 800)
+     }, 600)
      }
    };
 
 //Matching cards functionality
  function matchCards (card){
 matchVar ++;
-opened[0].classList.add('match');
-opened[1].classList.add('match');
+moves.innerText = movesVar;
+opened[0].classList.toggle('match');
+opened[1].classList.toggle('match');
 opened.splice(0,2);
  };
 
  function unmatchCards (card) {
-opened[0].classList.add('unmatch');
-opened[1].classList.add('unmatch');
+matchVar ++;
+moves.innerText = movesVar;
+opened[0].classList.toggle('unmatch');
+opened[1].classList.toggle('unmatch');
  }
 
 //Function on Win
@@ -79,34 +97,20 @@ function youWin () {
    placeCards();
    cardItem.push(deck.getElementsByTagName('i'));
 
-    addEventListener('click', function (card) {
+    deck.addEventListener('click', function (card) {
       if (opened.length == 1) {
          openCard(card);
          checkCard(card);
       }
       else if (opened.length > 1) {
-
+        
       } else if (opened.length == 0) {
-         openCard(card);
+        openCard(card);
+       } else if (matchVar === 8) {
+          youWin();
       }
     }
   )
-  if (matchVar === 8) {
-    youWin();
-  }
 }
-
-
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
-
 
 gameInit();
