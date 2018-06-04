@@ -124,3 +124,20 @@ h5 {
 .timer {
   color: red;
 }
+
+div {
+  position: relative;
+}
+
+.modal{
+  display: none;
+}
+
+.modal-show {
+ position: absolute;
+ width: 480px;
+ font-size: 30pt;
+ z-index: 4;
+ text-align-last: center;
+ align-content: center;
+}

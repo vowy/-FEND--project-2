@@ -5,6 +5,7 @@ const cards = ['diamond', 'paper-plane-o', 'anchor', 'bolt', 'cube', 'leaf', 'bi
    const scorePanel = document.querySelector('.score-panel');
    const restart = scorePanel.querySelector('.restart');
    const moves = scorePanel.querySelector('.moves');
+   const modal = document.querySelector('.modal');
    let cardItem = [];
    let opened = [];
    let matchVar = 0;
@@ -85,7 +86,9 @@ opened[1].classList.toggle('unmatch');
 
 //Function on Win
 function youWin(){
-  alert("Congratulations! You won!!")
+  stopTimer();
+  modal.className = "modal-show";
+
 }
 
 //timer

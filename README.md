@@ -17,5 +17,8 @@ Click one the dark spaces to reveal a card with a symbol. Match cards by reveali
 
 ## Version
 
-Current: 0.5 (BETA)
+Current: 1.0
+-Functionality mostly completed, next stop review!
+
+Previous(6/4/18):0.5 (BETA)
 (Note: Project is still in BETA, still a work in progress. Though it is mostly functional.)
