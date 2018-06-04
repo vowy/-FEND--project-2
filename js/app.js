@@ -5,39 +5,16 @@ const cards = ['diamond', 'paper-plane-o', 'anchor', 'bolt', 'cube', 'leaf', 'bi
    const scorePanel = document.querySelector('.score-panel');
    const restart = scorePanel.querySelector('.restart');
    const moves = scorePanel.querySelector('.moves');
-   const timer = scorePanel.querySelector('.timer');
-   const modal = document.getElementsByClassName('.modal')
    let cardItem = [];
    let opened = [];
    let matchVar = 0;
    let movesVar = 0;
-   let scoreVar = 0;
-   timerSeconds = 0;
-   timerMinutes = 0;
-
+   
 // Score-panel restart (reload) function
 restart.addEventListener('click', function (){
   location.reload(true);
 });
 
-//star rating functionality
-function checkScore () {
-if (movesVar <= 18) {
-  let scoreVar = 5;
-}else if (movesVar >= 18) {
-  let scoreVar = 4;
-}else if (movesVar >= 22) {
-  let scoreVar = 3;
-}else if (moveVar >= 23) {
-  let scoreVar = 2;
-}else if (moveVar > 25) {
-  let scoreVar = 1;
-  }
- for (var i = 0; i < scoreVar; i++) {
-  let template = `<li><i class="fa fa-star"></i></li>`
-  stars.insertAdjacentHTML('beforeend', template);
- }
-}
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {
@@ -107,14 +84,13 @@ opened[1].classList.toggle('unmatch');
  }
 
 //Function on Win
-function youWin(e) {
-  modal.className === 'show'
+function youWin(){
+  alert("Congratulations! You won!!")
 }
 
 //Initialize game function
  function gameInit(){
-   youWin();
-   checkScore();
+
    placeCards();
    cardItem.push(deck.getElementsByTagName('i'));
   deck.addEventListener('click', function (card) {

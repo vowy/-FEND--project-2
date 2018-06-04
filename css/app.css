@@ -120,16 +120,3 @@ h5 {
     float: right;
     cursor: pointer;
 }
-
-.modal {
-  visibility: hidden;
-}
-
-.modal .show {
-  visibility: visible;
-  z-index: 12;
-  color: white;
-  position: absolute;
-  align-items:  center;
-  text-align: center;
-}
