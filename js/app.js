@@ -9,7 +9,7 @@ const cards = ['diamond', 'paper-plane-o', 'anchor', 'bolt', 'cube', 'leaf', 'bi
    let opened = [];
    let matchVar = 0;
    let movesVar = 0;
-   
+
 // Score-panel restart (reload) function
 restart.addEventListener('click', function (){
   location.reload(true);
@@ -88,9 +88,41 @@ function youWin(){
   alert("Congratulations! You won!!")
 }
 
+//timer
+// Timer functions
+let sec = 0;
+let min = 0;
+let timer;
+
+function startTimer() {
+	timer = setInterval(insertTime, 1000);
+}
+
+function stopTimer() {
+	clearInterval(timer);
+	sec = 0;
+	min = 0;
+}
+
+function insertTime() {
+	sec++;
+
+	if (sec < 10) {
+		sec = `0${sec}`;
+	}
+
+	if (sec >= 60) {
+		min++;
+		sec = "00";
+	}
+
+	// display time
+	document.querySelector('.timer').innerHTML = "0" + min + ":" + sec;
+}
+
 //Initialize game function
  function gameInit(){
-
+   startTimer();
    placeCards();
    cardItem.push(deck.getElementsByTagName('i'));
   deck.addEventListener('click', function (card) {

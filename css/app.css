@@ -120,3 +120,7 @@ h5 {
     float: right;
     cursor: pointer;
 }
+
+.timer {
+  color: red;
+}
