@@ -7,6 +7,27 @@ html {
 *::after {
     box-sizing: inherit;
 }
+header {
+  background: linear-gradient(160deg, #02ccba 0%, #a1b9c4 100%);
+  padding: 32px;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+  text-shadow: 1px 1px 2px black, 0 0 25px #02ccba, 0 0 5px #a1b9c4;
+}
+
+a:link, a:visited, a:hover, a:active {
+  color: #CCC;
+  text-decoration: none;
+}
+
+ hr {
+  border: 0;
+  height: 8px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, white, #ccc);
+  box-shadow: 1px 1px 2px black, 0 0 25px #ccc, 0 0 5px #a1b9c4;
+}
 
 html,
 body {
@@ -23,6 +44,7 @@ body {
     font-family: 'Coda', cursive;
 }
 
+
 .container {
     display: flex;
     justify-content: center;
@@ -33,9 +55,10 @@ body {
 h1 {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
+
 }
 
-h5 {
+h4 {
     text-align: right;
 }
 /*
@@ -68,6 +91,7 @@ h5 {
     justify-content: center;
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    text-shadow: 1px 1px 2px black, 0 0 25px white, 0 0 5px black;
 }
 
 .deck .card.open {
@@ -98,46 +122,52 @@ h5 {
  */
 
 .score-panel {
-    text-align: left;
-    width: 345px;
-    margin-bottom: 10px;
+   text-align: left;
+   width: 345px;
+   margin-bottom: 10px;
 }
 
 .score-panel .stars {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 0;
-    color: yellow;
+   margin: 0;
+   padding: 0;
+   display: inline-block;
+   margin: 0 5px 0 0;
+   color: yellow;
+   float: left;
+   text-shadow: 1px 1px 2px black, 0 0 25px white, 0 0 5px black;
 }
 
 .score-panel .stars li {
-    list-style: none;
-    display: inline-block;
+   list-style: none;
+   display: inline-block;
 }
 
 .score-panel .restart {
-    float: right;
-    cursor: pointer;
+   float: right;
+   cursor: pointer;
 }
 
 .timer {
-  color: red;
+   color: red;
 }
 
-div {
-  position: relative;
+div.modalshow {
+   position: relative;
 }
 
-.modal{
-  display: none;
+.modal {
+   display: none;
 }
 
-.modal-show {
- position: absolute;
- width: 480px;
- font-size: 30pt;
- z-index: 4;
- text-align-last: center;
- align-content: center;
+ .modalshow {
+   text-align: center;
+   color: white;
+   position: absolute;
+   width: 480px;
+   font-size: 30pt;
+   z-index: 3;
+   text-align: center;
+   align-content: center;
+   text-shadow: 1px 1px 2px black, 0 0 25px white, 0 0 5px black;
+
 }
