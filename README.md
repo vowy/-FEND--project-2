@@ -18,7 +18,7 @@ Click one the dark spaces to reveal a card with a symbol. Match cards by reveali
 
 ## Version
 Current: 2.0
-###BIG UPDATE!!
+### BIG UPDATE!!
 -Fixed a lot of major bugs in the clicking functions
 -Added Star Rating
 -Updated end game/win modal
