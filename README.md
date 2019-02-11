@@ -1,5 +1,5 @@
 # [FEND] Project 2: Memory/Matching Game Project
-[GitHub Pages Link](https://vowy.github.io/FEND-project-2/)
+[GitHub Pages Link](https://vowy.github.io/FEND-project2/)
 
 ## Table of Contents
 
